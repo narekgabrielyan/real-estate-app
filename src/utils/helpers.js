@@ -18,3 +18,14 @@ export function setItemInLocalStorage(key, value) {
     console.error(`Error setting local storage item with key "${key}"`);
   }
 }
+
+export function asyncCallImitator(callback) {
+  return new Promise((resolve, reject) => {
+    try {
+      const value = callback();
+      resolve(value);
+    } catch (error) {
+      reject(error);
+    }
+  });
+}

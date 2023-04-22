@@ -1,8 +1,13 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { Route, Routes } from 'react-router-dom';
 import { getProducts, getUsers } from '../slices/commonSlice';
 import { mockApi } from '../mockApi/mockApi';
 import { getItemFromLocalStorage } from '../utils/helpers';
+import { ROUTES } from '../utils/constants';
+import Home from '../pages/Home';
+import MyProperties from '../pages/MyProperties';
+import Properties from '../pages/Properties';
 
 const App = () => {
   const { users, products } = useSelector(({ common }) => ({
@@ -36,7 +41,15 @@ const App = () => {
     }
   }, [dispatch, products?.data.length]);
 
-  return <div>App component</div>;
+  return (
+    <div className="app">
+      <Routes>
+        <Route path={ROUTES.HOME} element={<Home />} />
+        <Route path={ROUTES.PROPERTIES} element={<Properties />} />
+        <Route path={ROUTES.MY_PROPERTIES} element={<MyProperties />} />
+      </Routes>
+    </div>
+  );
 };
 
 export default App;
