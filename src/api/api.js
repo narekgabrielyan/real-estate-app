@@ -1,4 +1,4 @@
-import {getItemFromLocalStorage} from "../utils/helpers";
+import { getItemFromLocalStorage } from '../utils/helpers';
 
 export const api = {
   getUsers: async () => {
@@ -21,4 +21,4 @@ export const api = {
       }
     });
   }
-}
+};

@@ -1,5 +1,5 @@
-import {createAsyncThunk, createSlice} from '@reduxjs/toolkit';
-import {api} from "../api/api";
+import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
+import { api } from '../api/api';
 
 const initialState = {
   users: {
@@ -8,7 +8,7 @@ const initialState = {
   products: {
     data: []
   }
-}
+};
 
 export const getUsers = createAsyncThunk('common/getUsers', async () => {
   const response = await api.getUsers();
@@ -24,10 +24,10 @@ const commonSlice = createSlice({
   name: 'common',
   initialState,
   extraReducers: {
-    [getUsers.fulfilled]: (state, {payload}) => {
+    [getUsers.fulfilled]: (state, { payload }) => {
       state.users.data = payload.data;
     },
-    [getProducts.fulfilled]: (state, {payload}) => {
+    [getProducts.fulfilled]: (state, { payload }) => {
       state.products.data = payload.data;
     }
   }

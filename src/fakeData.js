@@ -26,7 +26,7 @@ export const fakeUsers = {
       }
     }
   ]
-}
+};
 
 export const fakeProducts = {
   data: [
@@ -53,4 +53,4 @@ export const fakeProducts = {
       description: 'description1'
     }
   ]
-}
+};
