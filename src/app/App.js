@@ -8,6 +8,7 @@ import { ROUTES } from '../utils/constants';
 import Home from '../pages/Home';
 import MyProperties from '../pages/MyProperties';
 import Properties from '../pages/Properties';
+import Header from '../components/header/Header';
 
 const App = () => {
   const { users, products } = useSelector(({ common }) => ({
@@ -43,6 +44,7 @@ const App = () => {
 
   return (
     <div className="app">
+      <Header />
       <Routes>
         <Route path={ROUTES.HOME} element={<Home />} />
         <Route path={ROUTES.PROPERTIES} element={<Properties />} />

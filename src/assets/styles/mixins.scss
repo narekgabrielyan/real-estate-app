@@ -1,0 +1,12 @@
+@mixin flexBox($align: center, $justify: null) {
+  display: flex;
+  align-items: $align;
+  @if ($justify) {
+    justify-content: $justify;
+  }
+}
+
+@mixin flexGrow {
+  flex-grow: 1;
+  min-width: 0;
+}
