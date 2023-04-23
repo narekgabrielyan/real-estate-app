@@ -19,6 +19,10 @@ export function setItemInLocalStorage(key, value) {
   }
 }
 
+export function removeItemFromLocalStorage(key) {
+  localStorage.removeItem(key);
+}
+
 export function asyncCallImitator(callback) {
   return new Promise((resolve, reject) => {
     try {
@@ -30,6 +34,6 @@ export function asyncCallImitator(callback) {
   });
 }
 
-export function isDataInStorage(key) {
-  return !!getItemFromLocalStorage(key);
+export function isInStorage(key) {
+  return localStorage.getItem(key) !== null;
 }

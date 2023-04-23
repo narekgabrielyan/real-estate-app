@@ -1,7 +1,7 @@
 import React from 'react';
 import logo from '../../../assets/img/logo.png';
 
-const LogoWrapper = () => {
+const Logo = () => {
   return (
     <div className="logo_wrapper">
       <span className="logo">
@@ -12,4 +12,4 @@ const LogoWrapper = () => {
   );
 };
 
-export default LogoWrapper;
+export default Logo;

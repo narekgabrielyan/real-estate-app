@@ -4,6 +4,11 @@
   cursor: pointer;
   transition: all var(--transition-fast);
 
+  &[disabled] {
+    pointer-events: none;
+    opacity: 0.5;
+  }
+
   &-primary {
     padding: 8px 16px;
     border-radius: 16px;
@@ -11,6 +16,15 @@
     background-color: var(--color-brand);
     &:hover {
       box-shadow: 0 0 3px var(--color-brand);
+    }
+  }
+  &-secondary {
+    padding: 8px 16px;
+    border-radius: 16px;
+    color: var(--color-3);
+    border: 2px solid var(--color-3);
+    &:hover {
+      box-shadow: 0 0 3px var(--color-3);
     }
   }
 }

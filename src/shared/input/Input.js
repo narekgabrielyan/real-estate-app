@@ -9,7 +9,7 @@ const Input = ({ id, type = 'text', label, value, customCn, onChange, ...props }
   const wrapperCn = cn({
     input_wrapper: true,
     [customCn]: !!customCn
-  })
+  });
 
   return (
     <div className={wrapperCn}>

@@ -2,9 +2,9 @@ import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Route, Routes } from 'react-router-dom';
 import { getProducts } from '../slices/commonSlice';
-import {getUsers} from "../slices/userSlice";
+import { getUsers, setCurrentUser } from '../slices/userSlice';
+import { getItemFromLocalStorage, isInStorage } from '../utils/helpers';
 import { mockApi } from '../mockApi/mockApi';
-import { isDataInStorage } from '../utils/helpers';
 import { ROUTES } from '../utils/constants';
 import Home from '../pages/Home';
 import MyProperties from '../pages/MyProperties';
@@ -21,10 +21,10 @@ const App = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    if (!isDataInStorage('users')) {
+    if (!isInStorage('users')) {
       mockApi.setUsersFakeData();
     }
-    if (!isDataInStorage('products')) {
+    if (!isInStorage('products')) {
       mockApi.setProductsFakeData();
     }
   }, []);
@@ -40,6 +40,14 @@ const App = () => {
       dispatch(getProducts());
     }
   }, [dispatch, products?.data.length]);
+
+  useEffect(() => {
+    if (isInStorage('userId')) {
+      const storedUserId = getItemFromLocalStorage('userId');
+      const currentUser = users.data.find((user) => user.id === storedUserId);
+      dispatch(setCurrentUser(currentUser));
+    }
+  }, [dispatch, users?.data]);
 
   return (
     <div className="app">

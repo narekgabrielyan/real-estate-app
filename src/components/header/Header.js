@@ -1,15 +1,15 @@
 import React from 'react';
-import LogoWrapper from './components/LogoWrapper';
-import AuthWrapper from './components/AuthWrapper';
+import Logo from './components/Logo';
+import Authentication from './components/Authentication';
 import Navbar from './components/Navbar';
 import './header.scss';
 
 const Header = () => {
   return (
     <div className="header">
-      <LogoWrapper />
+      <Logo />
       <Navbar />
-      <AuthWrapper />
+      <Authentication />
     </div>
   );
 };

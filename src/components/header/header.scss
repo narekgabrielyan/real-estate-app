@@ -56,5 +56,25 @@
     .auth_btn-login:hover {
       color: var(--color-brand);
     }
+
+    .avatar {
+      @include flexBox;
+      width: 100%;
+      div {
+        @include flexBox($align: stretch, $direction: column);
+        @include flexGrow;
+        font-size: 14px;
+
+        span {
+          margin: 2px 8px;
+        }
+      }
+
+      i {
+        margin: 0 4px;
+        font-size: 24px;
+        color: var(--color-brand);
+      }
+    }
   }
 }

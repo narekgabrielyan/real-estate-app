@@ -1,0 +1,22 @@
+@import '../../assets/styles/mixins';
+
+.message {
+  @include flexBox;
+  margin: 0 -4px;
+
+  i {
+    margin: 0 4px;
+  }
+
+  span {
+    margin: 0 4px;
+    font-size: 14px;
+  }
+
+  &-error {
+    color: var(--color-error);
+  }
+  &-warning {
+    color: var(--color-warning);
+  }
+}
