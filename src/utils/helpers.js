@@ -29,3 +29,7 @@ export function asyncCallImitator(callback) {
     }
   });
 }
+
+export function isDataInStorage(key) {
+  return !!getItemFromLocalStorage(key);
+}

@@ -7,13 +7,11 @@ const initialState = {
   },
   products: {
     data: []
+  },
+  ui: {
+    popup: null
   }
 };
-
-export const getUsers = createAsyncThunk('common/getUsers', async () => {
-  const response = await api.getUsers();
-  return response;
-});
 
 export const getProducts = createAsyncThunk('common/getProducts', async () => {
   const response = await api.getProducts();
@@ -23,14 +21,20 @@ export const getProducts = createAsyncThunk('common/getProducts', async () => {
 const commonSlice = createSlice({
   name: 'common',
   initialState,
-  extraReducers: {
-    [getUsers.fulfilled]: (state, { payload }) => {
-      state.users.data = payload.data;
+  reducers: {
+    setPopup: (state, { payload }) => {
+      state.ui.popup = payload;
     },
+    clearPopup: (state) => {
+      state.ui.popup = null;
+    }
+  },
+  extraReducers: {
     [getProducts.fulfilled]: (state, { payload }) => {
       state.products.data = payload.data;
     }
   }
 });
 
+export const { setPopup, clearPopup } = commonSlice.actions;
 export default commonSlice.reducer;

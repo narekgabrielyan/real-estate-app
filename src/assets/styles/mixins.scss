@@ -1,8 +1,11 @@
-@mixin flexBox($align: center, $justify: null) {
+@mixin flexBox($align: center, $justify: null, $direction: null) {
   display: flex;
   align-items: $align;
   @if ($justify) {
     justify-content: $justify;
+  }
+  @if ($direction) {
+    flex-direction: $direction;
   }
 }
 

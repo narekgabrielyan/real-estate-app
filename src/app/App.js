@@ -1,31 +1,30 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Route, Routes } from 'react-router-dom';
-import { getProducts, getUsers } from '../slices/commonSlice';
+import { getProducts } from '../slices/commonSlice';
+import {getUsers} from "../slices/userSlice";
 import { mockApi } from '../mockApi/mockApi';
-import { getItemFromLocalStorage } from '../utils/helpers';
+import { isDataInStorage } from '../utils/helpers';
 import { ROUTES } from '../utils/constants';
 import Home from '../pages/Home';
 import MyProperties from '../pages/MyProperties';
 import Properties from '../pages/Properties';
 import Header from '../components/header/Header';
+import Popup from '../shared/popup/Popup';
 
 const App = () => {
-  const { users, products } = useSelector(({ common }) => ({
-    users: common.users,
+  const { users, products } = useSelector(({ user, common }) => ({
+    users: user.users,
     products: common.products
   }));
 
   const dispatch = useDispatch();
 
   useEffect(() => {
-    if (!getItemFromLocalStorage('users')) {
+    if (!isDataInStorage('users')) {
       mockApi.setUsersFakeData();
     }
-  }, []);
-
-  useEffect(() => {
-    if (!getItemFromLocalStorage('products')) {
+    if (!isDataInStorage('products')) {
       mockApi.setProductsFakeData();
     }
   }, []);
@@ -44,6 +43,7 @@ const App = () => {
 
   return (
     <div className="app">
+      <Popup />
       <Header />
       <Routes>
         <Route path={ROUTES.HOME} element={<Home />} />
