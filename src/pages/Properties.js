@@ -13,7 +13,7 @@ const Properties = () => {
     if (!products.data.length) {
       dispatch(getProducts());
     }
-  }, [dispatch]);
+  }, [dispatch, products.data.length]);
 
   const productsList = products.data;
 
