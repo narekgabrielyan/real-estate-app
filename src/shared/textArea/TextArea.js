@@ -11,15 +11,12 @@ const TextArea = ({ id, label, onChange, ...props }) => {
 
   return (
     <div className="text_area_wrapper">
-      {label && <label htmlFor={id} className="label">
-        <span>{label}</span>
-      </label>}
-      <textarea
-        id={id}
-        onChange={onAreaChange}
-        value={areaValue}
-        {...props}
-      />
+      {label && (
+        <label htmlFor={id} className="label">
+          <span>{label}</span>
+        </label>
+      )}
+      <textarea id={id} onChange={onAreaChange} value={areaValue} {...props} />
     </div>
   );
 };
