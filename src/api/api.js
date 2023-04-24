@@ -22,5 +22,12 @@ export const api = {
   },
   logOutUser: async () => {
     return await asyncCallImitator(() => removeItemFromLocalStorage('userId'));
+  },
+  addUser: async (user) => {
+    const existingUsers = getItemFromLocalStorage('users');
+    existingUsers.data.push(user);
+    return await asyncCallImitator(() => {
+      setItemInLocalStorage('users', existingUsers);
+    });
   }
 };

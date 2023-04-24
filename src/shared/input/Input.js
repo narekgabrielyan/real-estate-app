@@ -1,7 +1,7 @@
 import cn from 'classnames';
 import './input.scss';
 
-const Input = ({ id, type = 'text', label, value, customCn, onChange, ...props }) => {
+const Input = ({ id, label, value, customCn, onChange, ...props }) => {
   const onInputChange = (e) => {
     onChange(e.target.value);
   };
@@ -13,8 +13,12 @@ const Input = ({ id, type = 'text', label, value, customCn, onChange, ...props }
 
   return (
     <div className={wrapperCn}>
-      <label htmlFor={id}>{label}</label>
-      <input id={id} type={type} value={value} onChange={onInputChange} {...props} />
+      {label && (
+        <label htmlFor={id} className="label">
+          {label}
+        </label>
+      )}
+      <input id={id} value={value} onChange={onInputChange} {...props} />
     </div>
   );
 };

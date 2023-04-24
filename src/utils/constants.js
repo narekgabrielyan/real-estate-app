@@ -1,10 +1,15 @@
-export const USER_TYPE_USER = 'user';
-export const USER_TYPE_AGENT = 'agent';
+export const USER = 'USER';
+export const AGENT = 'AGENT';
 
 export const USER_TYPE_ID_MAP = {
-  0: USER_TYPE_USER,
-  1: USER_TYPE_AGENT
+  USER: 0,
+  AGENT: 1
 };
+
+export const USER_TYPES = [
+  { name: 'User', value: 0 },
+  { name: 'Agent', value: 1 }
+];
 
 export const ROUTES = {
   HOME: '/',

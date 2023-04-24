@@ -23,6 +23,11 @@ export const logInUser = createAsyncThunk('user/logInUser', async ({ user }) => 
   return { data: response, user };
 });
 
+export const addUser = createAsyncThunk('user/addUser', async ({ user, callback }) => {
+  const response = await api.addUser(user);
+  return { data: response, callback };
+});
+
 const userSlice = createSlice({
   name: 'user',
   initialState,
@@ -32,6 +37,9 @@ const userSlice = createSlice({
     },
     clearCurrentUser: (state) => {
       state.currentUser = null;
+    },
+    addUserLocally: (state, { payload }) => {
+      state.users.data.push(payload);
     }
   },
   extraReducers: {
@@ -47,5 +55,5 @@ const userSlice = createSlice({
   }
 });
 
-export const { setCurrentUser, clearCurrentUser } = userSlice.actions;
+export const { setCurrentUser, addUserLocally, clearCurrentUser } = userSlice.actions;
 export default userSlice.reducer;

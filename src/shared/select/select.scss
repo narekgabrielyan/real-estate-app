@@ -1,0 +1,77 @@
+@import '../../assets/styles/mixins';
+
+.select_wrapper {
+  @include flexBox($direction: column, $align: stretch);
+
+  .select_inner_wrapper {
+    position: relative;
+  }
+
+  .select_panel {
+    @include flexBox;
+    height: 32px;
+    padding: 0 4px;
+    font-size: 13px;
+    background-color: var(--color-2);
+    border: 1px solid var(--color-3);
+    border-radius: 18px;
+    transition: all var(--transition-fast);
+
+    span {
+      @include flexGrow;
+      margin: 0 4px;
+    }
+
+    i {
+      width: 0;
+      height: 0;
+      margin: 0 8px;
+      border-left: 5px solid transparent;
+      border-right: 5px solid transparent;
+      border-top: 5px solid var(--color-5);
+      transition: transform var(--transition-fast);
+    }
+  }
+
+  .options_wrapper {
+    @include flexBox($direction: column, $align: stretch);
+    position: absolute;
+    top: calc(100% + 4px);
+    left: 0;
+    width: 100%;
+    border-radius: 18px;
+    box-shadow: 0 0 6px 3px var(--color-3);
+
+    .option {
+      height: 36px;
+      line-height: 36px;
+      font-size: 13px;
+      padding: 0 8px;
+      cursor: pointer;
+      background-color: var(--color-2);
+      transition: color var(--transition-fast);
+      &:not(:last-child) {
+        border-bottom: 1px solid var(--color-3);
+      }
+
+      &:hover {
+        color: var(--color-brand);
+      }
+      &-selected {
+        color: var(--color-brand);
+      }
+    }
+  }
+
+  &-open {
+    .select_panel {
+      background-color: #fff;
+      border-color: var(--color-brand);
+      box-shadow: 0 0 6px 3px var(--color-3);
+
+      i {
+        transform: rotateX(-180deg);
+      }
+    }
+  }
+}

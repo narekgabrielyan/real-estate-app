@@ -1,16 +1,19 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 import { setPopup } from '../../../slices/commonSlice';
+import { logOutUser } from '../../../slices/userSlice';
 import { login, registration } from '../../../utils/popupTypes';
+import { ROUTES } from '../../../utils/constants';
 import Button from '../../../shared/button/Button';
 import UserInfo from '../../userInfo/UserInfo';
-import { logOutUser } from '../../../slices/userSlice';
 
 const Authentication = () => {
   const { currentUser } = useSelector(({ user }) => ({
     currentUser: user.currentUser
   }));
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const onOpenPopup = (popup) => {
     dispatch(setPopup(popup));
@@ -18,6 +21,7 @@ const Authentication = () => {
 
   const onLogOut = () => {
     dispatch(logOutUser());
+    navigate(ROUTES.HOME);
   };
 
   return (

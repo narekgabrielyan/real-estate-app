@@ -10,7 +10,8 @@ const Message = ({ type, message }) => {
 
   const iconCn = cn({
     'bi-exclamation-triangle-fill': type === 'error' || type === 'warning',
-    'bi-check-circle-fill': type === 'success'
+    'bi-check-circle-fill': type === 'success',
+    'bi-info-circle-fill': type === 'info'
   });
 
   return (
