@@ -1,8 +1,7 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { getProducts } from '../../slices/productSlice';
-import ProductList from '../../components/productList/ProductList';
-import './properties.scss';
+import {getProducts} from '../slices/productSlice';
+import ProductList from '../components/productList/ProductList';
 
 const Properties = () => {
   const { products } = useSelector(({ product }) => ({
@@ -11,10 +10,10 @@ const Properties = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    if (!products?.data.length) {
+    if(!products.data.length) {
       dispatch(getProducts());
     }
-  }, [dispatch, products?.data.length]);
+  }, [dispatch]);
 
   const productsList = products.data;
 

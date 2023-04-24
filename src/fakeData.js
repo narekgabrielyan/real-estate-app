@@ -40,7 +40,7 @@ export const fakeProducts = {
       location: 'location0',
       briefDescription: 'briefDescription0',
       detailedDescription: 'detailedDescription0',
-      images: ['a.png', 'b.png', 'c.png', 'd.png', 'e.png', 'f.png']
+      images: ['0-a.png', '0-b.png', '0-c.png', '0-d.png', '0-e.png', '0-f.png']
     },
     {
       id: 1,
@@ -52,7 +52,7 @@ export const fakeProducts = {
       location: 'location1',
       briefDescription: 'briefDescription1',
       detailedDescription: 'detailedDescription1',
-      images: ['a.png', 'b.png', 'c.png', 'd.png']
+      images: ['1-a.png', '1-b.png', '1-c.png', '1-d.png']
     }
   ]
 };

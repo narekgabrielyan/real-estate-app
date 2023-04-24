@@ -18,12 +18,20 @@ export const getProducts = createAsyncThunk('product/getProducts', async () => {
   return response;
 });
 
+export const addProduct = createAsyncThunk('product/addProduct', async ({ product }) => {
+  const response = await api.addProduct(product);
+  return response;
+});
+
 const productSlice = createSlice({
   name: 'product',
   initialState,
   reducers: {
     clearProducts: (state) => {
       state.products.data = [];
+    },
+    addProductLocally: (state, { payload }) => {
+      state.products.data.push(payload);
     }
   },
   extraReducers: {
@@ -36,5 +44,5 @@ const productSlice = createSlice({
   }
 });
 
-export const { clearProducts } = productSlice.actions;
+export const { addProductLocally, clearProducts } = productSlice.actions;
 export default productSlice.reducer;

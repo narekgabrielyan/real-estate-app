@@ -12,15 +12,11 @@ body,
   height: 100%;
 }
 
-.app {
-  @include flexBox($direction: column, $align: stretch);
-}
-
 .page {
   width: 100%;
   max-width: 1920px;
   flex-grow: 1;
-  min-height: 0;
+  min-height: calc(100% - 54px);
   margin: auto;
   background-color: var(--color-1);
 }

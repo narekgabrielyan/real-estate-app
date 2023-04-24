@@ -29,5 +29,12 @@ export const api = {
     return await asyncCallImitator(() => {
       setItemInLocalStorage('users', existingUsers);
     });
+  },
+  addProduct: async (product) => {
+    const existingProducts = getItemFromLocalStorage('products');
+    existingProducts.data.push(product);
+    return await asyncCallImitator(() => {
+      setItemInLocalStorage('products', existingProducts);
+    });
   }
 };

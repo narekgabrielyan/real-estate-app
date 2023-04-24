@@ -1,14 +1,13 @@
 import React, { useState } from 'react';
-import PopupWrapper from '../../shared/popup/PopupWrapper';
-import DebounceInput from '../../shared/input/DebounceInput';
-import Message from '../../components/message/Message';
-import Button from '../../shared/button/Button';
 import { useDispatch, useSelector } from 'react-redux';
-import Input from '../../shared/input/Input';
-import Select from '../../shared/select/Select';
-import { USER_TYPES } from '../../utils/constants';
-import { generateUniqueId } from '../../utils/helpers';
-import { addUser, addUserLocally } from '../../slices/userSlice';
+import { addUser, addUserLocally } from '../slices/userSlice';
+import { USER_TYPES } from '../utils/constants';
+import PopupWrapper from '../shared/popup/PopupWrapper';
+import DebounceInput from '../shared/input/DebounceInput';
+import Message from '../components/message/Message';
+import Button from '../shared/button/Button';
+import Input from '../shared/input/Input';
+import Select from '../shared/select/Select';
 
 const Registration = () => {
   const { users } = useSelector(({ user }) => ({
@@ -33,7 +32,7 @@ const Registration = () => {
   const onRegister = (e) => {
     e.preventDefault();
     const user = {
-      id: generateUniqueId(),
+      id: Date.now(),
       userName,
       passWord,
       userTypeId,
@@ -67,12 +66,14 @@ const Registration = () => {
       {!fulfilled ? (
         <form className="submission_form registration_form" onSubmit={onRegister}>
           <DebounceInput
+            id="reg_username_input"
             value={userName}
             onChange={onChangeUserName}
             label="Username"
             placeholder="Enter your username"
           />
           <Input
+            id="reg_password_input"
             value={passWord}
             onChange={setPassWord}
             type="password"
@@ -82,6 +83,7 @@ const Registration = () => {
           />
           <Select options={USER_TYPES} onChange={onSelectUserType} label="Choose account type" />
           <Input
+            id="reg_name_input"
             value={firstName}
             onChange={setFirstName}
             type="text"
@@ -90,6 +92,7 @@ const Registration = () => {
             placeholder="Enter your name"
           />
           <Input
+            id="reg_surname_input"
             value={lastName}
             onChange={setLastName}
             type="text"
@@ -98,6 +101,7 @@ const Registration = () => {
             placeholder="Enter your surname"
           />
           <Input
+            id="reg_phone_number_input"
             value={phoneNumber}
             onChange={setPhoneNumber}
             type="text"

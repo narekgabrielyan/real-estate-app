@@ -1,8 +1,9 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
-import { LOGIN, REGISTRATION } from '../../utils/popupTypes';
-import Login from '../../features/auth/Login';
-import Registration from '../../features/auth/Registration';
+import {ADD_PROPERTY, LOGIN, REGISTRATION} from '../../utils/popupTypes';
+import Login from '../../features/Login';
+import Registration from '../../features/Registration';
+import AddProperty from "../../features/AddProperty";
 import './popup.scss';
 
 const Popup = () => {
@@ -17,6 +18,8 @@ const Popup = () => {
       return <Login />;
     case REGISTRATION:
       return <Registration />;
+    case ADD_PROPERTY:
+      return <AddProperty/>
     default:
       return null;
   }

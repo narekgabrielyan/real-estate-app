@@ -1,6 +1,7 @@
+@import '../../assets/styles/mixins';
 .my_properties_page {
   .message {
-    margin-top: 40px;
+    height: 100px;
     justify-content: center;
 
     i {
@@ -9,6 +10,26 @@
 
     span {
       font-size: 20px;
+    }
+  }
+
+  .my_properties_page_header {
+    @include flexBox;
+    font-size: 18px;
+    padding: 24px 12px 0;
+
+    span {
+      font-weight: 600;
+      margin: 0 12px;
+    }
+
+    button {
+      margin: 0 12px;
+
+      i {
+        font-size: 16px;
+        margin-inline-end: 6px;
+      }
     }
   }
 }

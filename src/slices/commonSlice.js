@@ -7,7 +7,7 @@ const initialState = {
 };
 
 const commonSlice = createSlice({
-  name: 'common',
+  name: 'ui',
   initialState,
   reducers: {
     setPopup: (state, { payload }) => {

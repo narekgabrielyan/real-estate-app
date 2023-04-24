@@ -27,7 +27,7 @@ const DebounceInput = ({ delay = 400, label, value, customCn, onChange, id, ...p
 
   return (
     <div className={wrapperCn}>
-      {label && <label htmlFor={id}>{label}</label>}
+      {label && <label htmlFor={id} className="label">{label}</label>}
       <input value={inputValue} onChange={onChangeWithDebounce} id={id} {...props} />
     </div>
   );

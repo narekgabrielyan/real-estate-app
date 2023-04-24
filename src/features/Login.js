@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { clearPopup } from '../../slices/commonSlice';
-import { logInUser } from '../../slices/userSlice';
-import Input from '../../shared/input/Input';
-import Button from '../../shared/button/Button';
-import Message from '../../components/message/Message';
-import PopupWrapper from '../../shared/popup/PopupWrapper';
+import { clearPopup } from '../slices/commonSlice';
+import { logInUser } from '../slices/userSlice';
+import Input from '../shared/input/Input';
+import Button from '../shared/button/Button';
+import Message from '../components/message/Message';
+import PopupWrapper from '../shared/popup/PopupWrapper';
 import './index.scss';
 
 const Login = () => {
@@ -38,12 +38,14 @@ const Login = () => {
     <PopupWrapper title="Log in">
       <div className="submission_form login_form">
         <Input
+          id="login_username_input"
           value={userName}
           onChange={setUserName}
           label="Username"
           placeholder="Enter your username"
         />
         <Input
+          id="login_password_input"
           value={passWord}
           onChange={setPassWord}
           type="password"

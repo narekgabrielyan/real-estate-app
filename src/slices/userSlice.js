@@ -23,9 +23,9 @@ export const logInUser = createAsyncThunk('user/logInUser', async ({ user }) => 
   return { data: response, user };
 });
 
-export const addUser = createAsyncThunk('user/addUser', async ({ user, callback }) => {
+export const addUser = createAsyncThunk('user/addUser', async ({ user }) => {
   const response = await api.addUser(user);
-  return { data: response, callback };
+  return response;
 });
 
 const userSlice = createSlice({

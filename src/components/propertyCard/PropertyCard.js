@@ -9,7 +9,7 @@ const PropertyCard = ({ data, isCollapsed = false }) => {
   const { id, images, name, briefDescription, detailedDescription, location, price, agentId } =
     data;
   const navigate = useNavigate();
-  const imageSource = require(`../../assets/img/properties/${id}/${images[0]}`);
+  const imageSource = require(`../../assets/img/properties/${images[0]}`);
 
   const onShowMore = () => {
     navigate(`/propertyDetails/${id}`);
