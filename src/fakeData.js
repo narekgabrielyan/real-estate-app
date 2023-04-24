@@ -3,26 +3,23 @@ export const fakeUsers = {
     {
       id: 0,
       userTypeId: 0,
-      userName: 'userName0',
-      passWord: 'password0',
+      userName: 'testuser',
+      passWord: '12345678',
       userInfo: {
-        firstName: 'userFirstName0',
-        lastName: 'userLastName0',
+        firstName: 'userFirstName',
+        lastName: 'userLastName',
         phoneNumber: '12345678'
       }
     },
     {
       id: 1,
       userTypeId: 1,
-      userName: 'userName1',
-      passWord: 'password1',
+      userName: 'testagent',
+      passWord: '12345678',
       userInfo: {
-        firstName: 'agentFirstName0',
-        lastName: 'agentLastName0',
+        firstName: 'agentFirstName',
+        lastName: 'agentLastName',
         phoneNumber: '12345678'
-      },
-      productsInfo: {
-        ids: [0, 1]
       }
     }
   ]
@@ -33,25 +30,25 @@ export const fakeProducts = {
     {
       id: 0,
       agentId: 1,
-      price: 1000,
-      name: 'name0',
-      type: 'type0',
-      address: 'address0',
-      location: 'location0',
-      briefDescription: 'briefDescription0',
-      detailedDescription: 'detailedDescription0',
+      price: 2000,
+      name: 'Fulbrix',
+      type: 0,
+      address: '234 W Polk St',
+      location: 'Chicago, IL',
+      briefDescription: 'It’s new. It’s bold. It’s living to the Fulton-est in Chicago’s West Loop.',
+      detailedDescription: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad animi atque aut blanditiis dolorem ducimus esse fugiat itaque laboriosam maxime, mollitia nesciunt nihil numquam omnis quisquam repellat, repellendus ullam velit.',
       images: ['0-a.png', '0-b.png', '0-c.png', '0-d.png', '0-e.png', '0-f.png']
     },
     {
       id: 1,
       agentId: 0,
-      price: 2000,
-      name: 'name1',
-      type: 'type1',
-      address: 'address1',
-      location: 'location1',
-      briefDescription: 'briefDescription1',
-      detailedDescription: 'detailedDescription1',
+      price: 1525,
+      name: 'Post Apartment',
+      type: 1,
+      address: '160 N Elizabeth St',
+      location: 'Chicago, IL',
+      briefDescription: 'Post - Chicago\'s most forward-focused peer living community!',
+      detailedDescription: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad animi atque aut blanditiis dolorem ducimus esse fugiat itaque laboriosam maxime, mollitia nesciunt nihil numquam omnis quisquam repellat, repellendus ullam velit.',
       images: ['1-a.png', '1-b.png', '1-c.png', '1-d.png']
     }
   ]
