@@ -13,10 +13,12 @@ const PopupWrapper = ({ title, children }) => {
     <div className="popup_container">
       <div className="popup_backdrop" onClick={onClosePopup} />
       <div className="popup">
-        <div className="popup_header">
-          <span title={title}>{title}</span>
-          <i className="bi-x-lg" onClick={onClosePopup} />
-        </div>
+        {title && (
+          <div className="popup_header">
+            <span title={title}>{title}</span>
+            <i className="bi-x-lg" onClick={onClosePopup} />
+          </div>
+        )}
         <div className="popup_content">{children}</div>
       </div>
     </div>

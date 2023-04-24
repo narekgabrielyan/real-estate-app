@@ -1,0 +1,29 @@
+@import '../../assets/styles/mixins';
+
+.user_info {
+  @include flexBox($direction: column, $align: stretch);
+  > span {
+    @include flexBox;
+    @include flexGrow;
+    font-size: 14px;
+    margin: 1px -4px;
+    i {
+      width: 20px;
+      margin: 0 4px;
+      font-size: 20px;
+      text-align: center;
+      color: var(--color-brand);
+    }
+
+    span {
+      margin: 0 4px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+  }
+
+  .user_contact i {
+    font-size: 16px;
+  }
+}

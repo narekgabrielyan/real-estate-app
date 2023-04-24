@@ -36,21 +36,23 @@ export const fakeProducts = {
       price: 1000,
       name: 'name0',
       type: 'type0',
-      title: 'title0',
       address: 'address0',
       location: 'location0',
-      description: 'description0'
+      briefDescription: 'briefDescription0',
+      detailedDescription: 'detailedDescription0',
+      images: ['a.png', 'b.png', 'c.png', 'd.png', 'e.png', 'f.png']
     },
     {
       id: 1,
-      agentId: 1,
+      agentId: 0,
       price: 2000,
       name: 'name1',
       type: 'type1',
-      title: 'title1',
       address: 'address1',
       location: 'location1',
-      description: 'description1'
+      briefDescription: 'briefDescription1',
+      detailedDescription: 'detailedDescription1',
+      images: ['a.png', 'b.png', 'c.png', 'd.png']
     }
   ]
 };

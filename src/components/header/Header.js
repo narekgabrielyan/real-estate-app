@@ -7,9 +7,11 @@ import './header.scss';
 const Header = () => {
   return (
     <div className="header">
-      <Logo />
-      <Navbar />
-      <Authentication />
+      <div className="header_content">
+        <Logo />
+        <Navbar />
+        <Authentication />
+      </div>
     </div>
   );
 };

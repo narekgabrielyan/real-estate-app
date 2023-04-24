@@ -3,7 +3,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import { setPopup } from '../../../slices/commonSlice';
 import { login, registration } from '../../../utils/popupTypes';
 import Button from '../../../shared/button/Button';
-import Avatar from './Avatar';
+import UserInfo from '../../userInfo/UserInfo';
+import { logOutUser } from '../../../slices/userSlice';
 
 const Authentication = () => {
   const { currentUser } = useSelector(({ user }) => ({
@@ -15,13 +16,19 @@ const Authentication = () => {
     dispatch(setPopup(popup));
   };
 
+  const onLogOut = () => {
+    dispatch(logOutUser());
+  };
+
   return (
     <div className="auth_wrapper">
       {currentUser ? (
-        <Avatar
-          firstName={currentUser.userInfo.firstName}
-          lastName={currentUser.userInfo.lastName}
-        />
+        <>
+          <UserInfo userId={currentUser.id} />
+          <Button styleType="secondary" onClick={onLogOut}>
+            Log out
+          </Button>
+        </>
       ) : (
         <>
           <Button customCn="auth_btn-login" onClick={() => onOpenPopup(login)}>

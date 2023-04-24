@@ -9,6 +9,11 @@ export const api = {
   getUsers: async () => {
     return await asyncCallImitator(() => getItemFromLocalStorage('users'));
   },
+  getProduct: async (productId) => {
+    return await asyncCallImitator(() => {
+      return getItemFromLocalStorage('products').data.find((product) => product.id === productId);
+    });
+  },
   getProducts: async () => {
     return await asyncCallImitator(() => getItemFromLocalStorage('products'));
   },

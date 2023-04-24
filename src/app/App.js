@@ -1,14 +1,15 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Route, Routes } from 'react-router-dom';
-import { getProducts } from '../slices/commonSlice';
 import { getUsers, setCurrentUser } from '../slices/userSlice';
-import { getItemFromLocalStorage, isInStorage } from '../utils/helpers';
+import { getProducts } from '../slices/productSlice';
 import { mockApi } from '../mockApi/mockApi';
+import { getItemFromLocalStorage, isInStorage } from '../utils/helpers';
 import { ROUTES } from '../utils/constants';
 import Home from '../pages/Home';
 import MyProperties from '../pages/MyProperties';
-import Properties from '../pages/Properties';
+import Properties from '../pages/properties/Properties';
+import PropertyDetails from '../pages/PropertyDetails';
 import Header from '../components/header/Header';
 import Popup from '../shared/popup/Popup';
 
@@ -57,6 +58,10 @@ const App = () => {
         <Route path={ROUTES.HOME} element={<Home />} />
         <Route path={ROUTES.PROPERTIES} element={<Properties />} />
         <Route path={ROUTES.MY_PROPERTIES} element={<MyProperties />} />
+        <Route
+          path={`${ROUTES.PROPERTIES}/propertyDetails/:propertyId`}
+          element={<PropertyDetails />}
+        />
       </Routes>
     </div>
   );
