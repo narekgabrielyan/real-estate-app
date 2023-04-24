@@ -7,16 +7,17 @@ import { mockApi } from '../mockApi/mockApi';
 import { getItemFromLocalStorage, isInStorage } from '../utils/helpers';
 import { ROUTES } from '../utils/constants';
 import Home from '../pages/Home';
-import MyProperties from '../pages/MyProperties';
+import MyProperties from '../pages/myProperties/MyProperties';
 import Properties from '../pages/properties/Properties';
 import PropertyDetails from '../pages/PropertyDetails';
 import Header from '../components/header/Header';
 import Popup from '../shared/popup/Popup';
 
 const App = () => {
-  const { users, products } = useSelector(({ user, common }) => ({
+  const { users, products, currentUser } = useSelector(({ user, common }) => ({
     users: user.users,
-    products: common.products
+    products: common.products,
+    currentUser: user.currentUser
   }));
 
   const dispatch = useDispatch();
@@ -57,11 +58,8 @@ const App = () => {
       <Routes>
         <Route path={ROUTES.HOME} element={<Home />} />
         <Route path={ROUTES.PROPERTIES} element={<Properties />} />
-        <Route path={ROUTES.MY_PROPERTIES} element={<MyProperties />} />
-        <Route
-          path={`${ROUTES.PROPERTIES}/propertyDetails/:propertyId`}
-          element={<PropertyDetails />}
-        />
+        {currentUser && <Route path={ROUTES.MY_PROPERTIES} element={<MyProperties />} />}
+        <Route path={`/propertyDetails/:propertyId`} element={<PropertyDetails />} />
       </Routes>
     </div>
   );

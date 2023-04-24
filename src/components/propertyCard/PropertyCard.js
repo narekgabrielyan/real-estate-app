@@ -1,19 +1,18 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import cn from 'classnames';
 import ImageSwiper from './ImageSwiper';
-import { ROUTES } from '../../../utils/constants';
-import UserInfo from '../../../components/userInfo/UserInfo';
+import UserInfo from '../userInfo/UserInfo';
+import cn from 'classnames';
 import './propertyCard.scss';
 
 const PropertyCard = ({ data, isCollapsed = false }) => {
   const { id, images, name, briefDescription, detailedDescription, location, price, agentId } =
     data;
   const navigate = useNavigate();
-  const imageSource = require(`../../../assets/img/properties/${id}/${images[0]}`);
+  const imageSource = require(`../../assets/img/properties/${id}/${images[0]}`);
 
   const onShowMore = () => {
-    navigate(`${ROUTES.PROPERTIES}/propertyDetails/${id}`);
+    navigate(`/propertyDetails/${id}`);
   };
 
   const cardCn = cn({
@@ -39,7 +38,6 @@ const PropertyCard = ({ data, isCollapsed = false }) => {
           <img src={imageSource} alt="" />
         </div>
       )}
-
       <div className="property_info">
         {!isCollapsed && <span className="property_name">{name}</span>}
         <span className="property_location">{location}</span>

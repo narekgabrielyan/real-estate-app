@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import PropertyCard from './properties/components/PropertyCard';
+import PropertyCard from '../components/propertyCard/PropertyCard';
 import { getProduct } from '../slices/productSlice';
 
 const PropertyDetails = () => {

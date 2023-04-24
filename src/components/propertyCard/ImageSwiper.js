@@ -8,7 +8,7 @@ const ImageSwiper = ({ id, images }) => {
   return (
     <Swiper className="image_swiper" navigation={true} modules={[Navigation]}>
       {images.map((image) => {
-        const imageSource = require(`../../../assets/img/properties/${id}/${image}`);
+        const imageSource = require(`../../assets/img/properties/${id}/${image}`);
         return (
           <SwiperSlide key={image} className="image_swiper_slide">
             <img src={imageSource} alt="" />

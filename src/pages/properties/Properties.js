@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { getProducts } from '../../slices/productSlice';
-import PropertyCard from './components/PropertyCard';
+import ProductList from '../../components/productList/ProductList';
 import './properties.scss';
 
 const Properties = () => {
@@ -20,9 +20,7 @@ const Properties = () => {
 
   return (
     <div className="properties_page page">
-      {productsList?.map((productData) => (
-        <PropertyCard data={productData} key={productData.id} type="compact" isCompactType />
-      ))}
+      {productsList?.length && <ProductList products={productsList} />}
     </div>
   );
 };

@@ -14,9 +14,19 @@
   }
 
   &-error {
-    color: var(--color-error);
+    i {
+      color: var(--color-error);
+    }
   }
-  &-warning {
-    color: var(--color-warning);
+  &-warning,
+  &-info {
+    i {
+      color: var(--color-warning);
+    }
+  }
+  &-success {
+    i {
+      color: var(--color-success);
+    }
   }
 }
