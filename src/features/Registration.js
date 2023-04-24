@@ -111,7 +111,7 @@ const Registration = () => {
           />
           {error && <Message type="error" message={error} />}
           <Button type="submit" styleType="primary" disabled={error}>
-            Click to login
+            Create account!
           </Button>
         </form>
       ) : (
