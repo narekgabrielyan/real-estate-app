@@ -2,8 +2,25 @@
 @import url('https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.4/font/bootstrap-icons.css');
 @import 'reset';
 @import 'variables';
+@import 'mixins';
 
-.app,
-#root {
+html,
+body,
+#root,
+.app {
   width: 100%;
+  height: 100%;
+}
+
+.app {
+  @include flexBox($direction: column, $align: stretch);
+}
+
+.page {
+  width: 100%;
+  max-width: 1920px;
+  flex-grow: 1;
+  min-height: 0;
+  margin: auto;
+  background-color: var(--color-1);
 }

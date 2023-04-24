@@ -14,23 +14,23 @@
   input {
     height: 36px;
     padding: 0 8px;
-    font-size: 12px;
+    font-size: 13px;
     border-radius: 18px;
     background-color: #f6f6f6;
-    border: 1px solid var(--color-1);
+    border: 1px solid var(--color-2);
     transition: var(--transition-fast);
 
     &::placeholder {
       transition: padding var(--transition-fast);
       font-weight: lighter;
-      color: var(--color-2);
+      color: var(--color-3);
     }
 
     &:hover,
     &:focus {
       background-color: #fff;
       border-color: var(--color-brand);
-      box-shadow: 0 0 6px 3px var(--color-1);
+      box-shadow: 0 0 6px 3px var(--color-2);
     }
 
     &:focus {
